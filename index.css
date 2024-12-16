@@ -1,0 +1,279 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
+
+/* # Main # */
+
+html {
+  height: 100%;
+}
+
+body {
+  --pad: max(100px, 10%);
+  --darken: linear-gradient(#0004, #0004);
+
+  --ac1: #495e57;
+  --ac2: #f4ce14;
+
+  padding: 0 var(--pad);
+  margin: 0px;
+
+  width: calc(100% - var(--pad) * 2);
+  height: 100%;
+
+  background-color: #f6f6f6;
+
+  background-image: var(--darken), url("./assets/paper.jpg");
+  background-size: cover;
+
+  font-size: 18px;
+}
+
+article {
+  text-align: justify;
+}
+
+p {
+  font-size: 1em;
+}
+
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+}
+
+.logo-in-box {
+  padding: 16px;
+  border: 2px solid var(--ac1);
+  width: fit-content;
+}
+
+#root {
+  width: 100%;
+  min-height: 100%;
+  background-color: #fffc;
+
+  font-family: "Merriweather";
+  overflow: hidden;
+}
+
+#root > .header {
+  min-height: 30px;
+  margin: 32px;
+
+  > .banner {
+    height: 180px;
+
+    background-image: url("./assets/asset_16.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  > nav {
+    height: 48px;
+    border: 1px solid var(--ac1);
+    margin: 16px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > a {
+      width: min(20%, 240px);
+      color: var(--ac1);
+
+      text-decoration: none;
+      font-weight: 600;
+
+      text-align: center;
+    }
+
+    > a:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+#root > main {
+  padding: 32px;
+
+  > div.full {
+    min-height: calc(min(100vh, 100vw) - 120px);
+  }
+
+  > .image-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 20px;
+
+    > img {
+      height: 100%;
+      width: 100%;
+
+      object-fit: cover;
+    }
+  }
+
+  > .promote-banner {
+    height: 130px;
+    padding: 32px 64px;
+
+    background-image: var(--darken), var(--darken),
+      url("https://plus.unsplash.com/premium_photo-1673108852141-e8c3c22a4a22?w=1000");
+
+    background-size: cover;
+    background-position: center;
+
+    color: #fff;
+
+    h1 {
+      margin: 10px 0;
+      display: inline-block;
+      border-bottom: 1px solid;
+    }
+  }
+
+  > .options-for-customers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    height: min(calc(100vh - 240px), 800px);
+
+    padding: 64px 0;
+    gap: 32px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    .option {
+      border: 2px dashed var(--ac2);
+      padding: 16px;
+
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        margin: 18px 0 0 0;
+        border-bottom: 2px solid var(--ac1);
+      }
+
+      img {
+        height: 45%;
+        width: 100%;
+        margin: 8px 0 16px 0;
+
+        object-fit: cover;
+      }
+
+      article {
+        flex: 1;
+      }
+
+      article::after {
+        content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et...";
+      }
+
+      button {
+        width: 100%;
+        font-family: inherit;
+
+        background-color: var(--ac1);
+        color: var(--ac2);
+
+        border: none;
+
+        padding: 16px;
+        font-size: 0.9em;
+
+        cursor: pointer;
+
+        transition: all 0.1s;
+      }
+
+      button:hover {
+        background-color: var(--ac2);
+        color: var(--ac1);
+      }
+
+      button:active {
+        filter: brightness(0.8);
+      }
+    }
+  }
+}
+
+#root > footer {
+  padding: 28px;
+  font-size: 0.8em;
+
+  display: flex;
+  justify-content: space-between;
+
+  .copyright-info {
+    border-top: 2px solid var(--ac1);
+    padding-top: 16px;
+    text-align: right;
+  }
+
+  > div {
+    flex: 1;
+  }
+}
+
+/* # Things for media queries # */
+
+@media (max-width: 1366px) {
+  body {
+    --pad: 0px;
+  }
+}
+
+@media (max-width: 800px) {
+  #root > main > .options-for-customers {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  #root > .header > nav {
+    flex-direction: column;
+    height: auto;
+
+    a {
+      height: 50px;
+    }
+
+    a:not(:last-child) {
+      border-bottom: 1px solid var(--ac1);
+    }
+  }
+
+  #root > main > .about-us {
+    flex-direction: column;
+    align-items: center;
+
+    img {
+      width: 300px;
+      height: 300px;
+      object-fit: contain;
+    }
+  }
+}
+
+/* # Helper classes # */
+
+.flex {
+  display: flex;
+}
+
+.aictr {
+  align-items: center;
+}
+
+.jcctr {
+  justify-content: center;
+}
+
+.spbtw {
+  justify-content: space-between;
+}
